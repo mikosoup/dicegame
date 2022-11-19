@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html>
+<style>
+ @import url('https://fonts.cdnfonts.com/css/common-pixel');
+.background{
+    background-image: url(../DiceGame/bg_img/blue.png.png);
+    background-size:cover;
+    background-repeat: no-repeat;
+    height: 100vh;
+    margin:0;
+    padding:0;
+}
+html , body{
+    margin:0;
+    padding:0;
+}
+body{
+    padding-top: 0;
+    font-family: sans-serif;
+    height: 100vh;
+    color: black;
+}
+.prompt_box{
+    width: 400px;
+    text-align: justify;
+    margin:0 auto;
+    background-color:antiquewhite;
+    box-shadow: -2px 6px 18px 3px rgba(0, 0, 0, 0.75);
+    padding: 50px;
+}
+.container{
+    width: 450px;
+    text-align: center;
+    margin:0 auto;
+    background:linear-gradient(180deg,#0091ff,#001d4d);
+    box-shadow: -2px 6px 18px 3px rgba(0, 0, 0, 0.75);
+    padding: 50px;
+}
+.container h1{
+color: white;
+}
+#title{
+font-family: 'Common Pixel', sans-serif;;
+font-size: 70px;
+color: #0e3742;
+-webkit-box-reflect: below 1px linear-gradient(transparent,#0008);
+line-height: 0.70em;
+outline: none;
+animation: animate 7s linear infinite alternate-reverse;
+}
+@keyframes animate {
+    0%,18%,20%,50.1%,60%,65.1%,80%,90.1%,92%
+    {
+        color: #0e3742;
+        text-shadow: none;
+    }
+    18.1%,20.1%,30%,50%,60.1%,65%,80.1%,90%,92.1%,100%
+    {
+        color: #fff;
+        text-shadow: 
+        0 0 10px #03bcf4,
+        0 0 20px #03bcf4,
+        0 0 40px #03bcf4,
+        0 0 80px #03bcf4,
+        0 0 160px #03bcf4;
+    }
+    
+}
+#title2,#title3,#dicetitle,#tgtitle{
+color: white;
+text-shadow: 1px 1px 1px #000000; 
+}
+.players{
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+}
+.dice{
+    border-radius: 10px;
+    width: 100px;
+    height: 100px;
+    background-color: #ECF0F1;
+    margin: 0 auto;
+    font-size: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: -2px 6px 18px 3px rgba(0, 0, 0, 0.75);
+}
+.btn{
+    background-color: #FC8383 ;
+    position:relative; 
+    left:20px; 
+    top:2px;
+    width: 130px;
+    height: 45px;
+    padding: 17px;
+    font-family:1.1rem;
+    font-size:10px;
+    text-align:center;
+    outline: none;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    box-shadow: -2px 6px 18px 3px rgba(0, 0, 0, 0.75);
+}
+.btn2{
+    background-color: #68D596 ;
+    position:relative; 
+    left:35px; 
+    top:120px;
+    width: 130px;
+    height: 45px;
+    padding: 17px;
+    font-family:1.1rem;
+    font-size:18px;
+    text-align: center;
+    outline: none;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    box-shadow: -2px 6px 18px 3px rgba(0, 0, 0, 0.75);
+}
+.btn3{
+    background-color: #68D596 ;
+    position:relative; 
+    left:40px; 
+    top:2px;
+    width: 100px;
+    height: 40px;
+    padding: 15px;
+    font-family:1.1rem;
+    font-size:13px;
+    text-align: center;
+    outline: none;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    box-shadow: -2px 6px 18px 3px rgba(0, 0, 0, 0.75);
+}
+.btn4{
+    background-color: #68D596 ;
+    position:relative; 
+    left:10px; 
+    top:20px;
+    width: 100px;
+    height: 40px;
+    padding: 15px;
+    font-family:1.1rem;
+    font-size:13px;
+    text-align: center;
+    outline: none;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    box-shadow: -2px 6px 18px 3px rgba(0, 0, 0, 0.75);
+}
+button{
+    color: #fff;
+    padding: 20px 30px;
+    font-size: 30px;
+    margin-top: 40px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+#rollbtn{
+    position: relative;
+    left:150px; 
+    top:2px;
+    font-size: 20px;
+    background-color: #001d4d    ;
+    display: none;
+    Letter-spacing: 2px;
+    text-transform: uppercase;
+    display: none;
+    transition: 0.2s;
+}
+#rollbtn:hover{
+    color:#ECF0F1;
+    background:#8A9DEB  ;
+    box-shadow: 
+    0 0 10px #E3C4F9 ,
+    0 0 10px #E3C4F9 ,
+    0 0 10px #E3C4F9 ;
+}
+#start{
+    position: relative;
+    left:-10px; 
+    top:2px;
+    font-size: 20px;
+    display: inline-block;
+    background-color: #001d4d;
+    text-transform: uppercase;
+    Letter-spacing: 2px;
+    overflow: hidden;
+    transition: 0.2s;
+    
+}
+#start:hover{
+    color:#ECF0F1;
+    background:#7FDA8E;
+    box-shadow: 
+    0 0 10px #fff,
+    0 0 10px #fff,
+    0 0 10px #fff;
+}
+button:focus{
+    outline: none;
+}
+.prompt_box{
+    display: none;
+    position: fixed;
+    text-align: fixed;
+    top: 25%;
+    left: 33%;
+    transform: trasnlate (-50%, -50%);
+    font-family: monospace;
+}
+.prompt_box2{
+    display: none;
+    position: fixed;
+    text-align: fixed;
+    top: 30%;
+    left: 33%;
+    transform: trasnlate (-50%, -50%);
+    font-family: monospace;
+}
+.prompt_box3{
+    display: none;
+    position: fixed;
+    text-align: fixed;
+    top: 30%;
+    left: 33%;
+    transform: trasnlate (-50%, -50%);
+    font-family: monospace;
+}
+.prompt_box4{
+    display: none;
+    position: fixed;
+    text-align: fixed;
+    top: 30%;
+    left: 33%;
+    transform: trasnlate (-50%, -50%);
+    font-family: monospace;
+}
+#prompt_box4 h1{
+    margin-bottom: 5px;
+    font-size:15px;
+    color: #D96767 ;
+}
+#prompt_box3 h1{
+    background-image: url(../DiceGame/bg_img/win.png.jpg);
+    background-size:cover;
+    background-repeat: no-repeat;
+    height: 10vh;
+    margin:0;
+    padding:0;
+    margin-bottom: 5px;
+    position: relative;
+    text-align: center;
+    font-size:15px;
+    color: #fff; 
+    text-shadow: 1px 1px 2px black, 0 0 25px blue, 0 0 5px darkblue;
+}
+#prompt_box h1{
+    margin-bottom: 5px;
+    font-size:15px;
+    color: #D96767;
+}
+#prompt_box2 h1{
+    margin-bottom: 5px;
+    font-size:15px;
+    color: #328782 ;
+}
+.prompt_box.active{
+    display: flex;
+}
+</style>
+<head> 
+    <title>Dice Game</title>
+</head>
+<body>
+    <div class="background">
+    <div class="prompt_box center" id="prompt_box">
+        <h1 id="prompt_txt">_</h1>
+        <button type="submit" class="btn" onclick="tryAgain()">Try Again</button>
+    </div>
+    <div class="prompt_box center" id="prompt_box2">
+        <h1 id="prompt_txt2"></h1>
+        <button type="submit" class="btn2" onclick="Play()">Play</button>
+    </div>
+    <div class="prompt_box center" id="prompt_box3">
+        <h1 id="prompt_txt3"></h1>
+    <button type="submit" class="btn3" onclick="PlayAgain()">Play Again</button>
+    </div>
+    <div class="prompt_box center" id="prompt_box4">
+        <h1 id="prompt_txt4"></h1>
+    <button type="submit" class="btn4" onclick="Okay()">Okay</button>
+    </div>
+    <div class="container">
+        <h1 id="title">DICE GAME</h1>
+        <h2 id="title2">Score :
+            <span id="score">0</span>
+        </h2>
+        <h2 id="title3">Guesses Remaining:
+        <span id="chances">5</span>
+        </h2>
+    <div class="players">
+    <div class="player1">
+        <h2 id="dicetitle">
+        Dice:
+    </h2>
+        <div id="player1Dice" class="dice">🎲</div>
+        </div>
+        <div class="player2">
+            <h2 id="tgtitle">
+                Guess Here:
+            </h2>
+            <input type="number" min=1 max=6 id="Guess" class="dice">
+    </div>
+    </div>
+    <button id="rollbtn" onclick="RollDice(Guess.value)">ROLL</button>
+    <button id="start">Start
+    </button>
+    </div>
+    </div>
+    <script type="text/javascript">
+
+        let play1turn = true
+        let play2turn = true
+        let dicescore = 0
+        let chance = 5
+        let dice = [1,2,3,4,5,6]
+
+        const prompt_txt2 = document.getElementById('prompt_txt2')
+        const prompt_txt = document.getElementById('prompt_txt')
+        const score = document.getElementById('score')
+        const prompt_box = document.getElementById('prompt_box')
+        const chances = document.getElementById('chances')
+        const player1Dice = document.getElementById('player1Dice')
+        const rollbtn = document.getElementById('rollbtn')
+        const resetbtn = document.getElementById('resetbtn')
+
+        //for the game to start
+        start.addEventListener('click' , function(){
+
+            const randomDice = dice[Math.floor(Math.random()*dice.length)]
+            if(play2turn){
+                activateBox2("Welcome to our Dice Game!<br><br>HOW TO PLAY: <br><br>Input a number and try to guess the dice.<br><br>get a score of 3 to win the game,<br> if you get 3 of them wrong you lose.<br><br> GOOD LUCK AND HAVE FUN!")
+                start.style.display = 'none'
+                rollbtn.style.display = 'none'
+                play2turn = false
+            }
+
+        })
+        function RollDice(guess){
+            const Guess = parseInt(document.getElementById('Guess').value);
+        //if the player did not input a number
+            if(guess == ''){
+                activateBox4('OPPS! you forgot to guess. Please input a number first')
+                rollbtn.style.display = 'none'
+            }
+        }
+
+        //for the dice to roll
+        rollbtn.addEventListener('click' , function RollDice (guess){
+            
+            const randomDice = dice[Math.floor(Math.random()*dice.length)]
+            const Guess = parseInt(document.getElementById('Guess').value);
+           
+            if(randomDice == Guess){
+                chance--;
+                dicescore++;
+                chances.innerHTML = chance; 
+                score.innerHTML = dicescore;
+            }
+            else{ 
+               chance--;
+               chances.innerHTML = chance;
+            }
+            // WIN 
+            if(dicescore == 3){
+                activateBox3('<br> congratulations! you won the game! <br>')
+                rollbtn.style.display = 'none'
+            }
+            // LOSE
+            if(chance == -1){
+              activateBox("Sorry, you don't have any guesses left. Better luck next time!")
+              rollbtn.style.display = 'none'
+             
+            }
+            // for the dice output
+            if(play1turn){
+                player1Dice.textContent = randomDice
+            }
+        })
+
+        //for the pop-up to work
+        function activateBox(e){
+            prompt_box.classList.add('active')
+            prompt_txt.innerHTML = e
+        }
+        function activateBox2(e){
+            prompt_box2.classList.add('active')
+            prompt_txt2.innerHTML = e
+        }
+        function activateBox3(e){
+            prompt_box3.classList.add('active')
+            prompt_txt3.innerHTML = e
+        }
+        function activateBox4(e){
+            prompt_box4.classList.add('active')
+            prompt_txt4.innerHTML = e
+        }
+        function Play(){
+            prompt_box2.classList.remove('active')
+            rollbtn.style.display = 'block'
+        }
+        //TO RESET THE GAME
+        function tryAgain(){
+            prompt_box.classList.remove('active')
+            chance = 5
+            chances.innerHTML = chance;
+            dicescore = 0
+            score.innerHTML = dicescore;
+            player1Dice.textContent = "🎲"
+            rollbtn.style.display = 'block'
+        }
+        function PlayAgain(){
+            prompt_box3.classList.remove('active')
+            chance = 5
+            chances.innerHTML = chance;
+            dicescore = 0
+            score.innerHTML = dicescore;
+            player1Dice.textContent = "🎲"
+            rollbtn.style.display = 'block'
+        }
+        function Okay(){
+            prompt_box4.classList.remove('active')
+            chance = 5
+            chances.innerHTML = chance;
+            dicescore = 0
+            score.innerHTML = dicescore;
+            player1Dice.textContent = "🎲"
+            rollbtn.style.display = 'block'
+        }
+
+    </script>
+</body>
+</html>
